@@ -13,8 +13,11 @@ from .permissions import IsOwnerOrReadOnly
 
 # Create your views here.
 class PledgeList(generics.ListCreateAPIView):
-	queryset = Pledge.objects.all()
-	serializer_class = PledgeSerializer
+    queryset = Pledge.objects.all()
+    serializer_class = PledgeSerializer
+
+    def perform_create(self,serializer):
+        serializer.save(supporter=self.request.user)	
 
 
 class ProjectList(APIView):
@@ -28,7 +31,7 @@ class ProjectList(APIView):
     def post(self, request):
         serializer = ProjectSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
+            serializer.save(owner = request.user)
             return Response(serializer.data, status= status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
