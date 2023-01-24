@@ -49,6 +49,9 @@ class ProjectDetail(APIView):
     def get(self, request, pk):
         project = self.get_object(pk)
         serializer = ProjectDetailSerializer (project)
+        # filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+        # filter_backends = [filters.OrderingFilter]
+        # ordering_fields = ['username', 'email']
         return Response(serializer.data)
 
     
