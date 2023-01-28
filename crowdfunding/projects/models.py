@@ -12,7 +12,15 @@ class Project(models.Model):
     image = models.URLField()
     is_open = models.BooleanField()
     date_created = models.DateTimeField(auto_now_add=True)
-    owner = models.ForeignKey(User,on_delete = models.CASCADE,related_name = 'owner_projects')
+    owner = models.ForeignKey(
+        User,
+        on_delete = models.CASCADE,
+        related_name = 'owner_projects'
+        )
+    @property
+    def total(self):
+        return self.pledges.aggregate(sum=models.Sum('amount'))['sum']
+
 
 
 class Pledge(models.Model):

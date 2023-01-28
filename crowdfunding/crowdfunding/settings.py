@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-6f5fiv53l$d=%d
 DEBUG = os.environ.get('DJANGO_DEBUG','FALSE') != 'False'
 
 
-ALLOWED_HOSTS = ['little-field-8486.fly.dev']
+ALLOWED_HOSTS = ['little-field-8486.fly.dev', '127.0.0.1', 'localhost']
 CORS_ALLOW_ALL_ORIGINS = True 
 CSRF_TRUSTED_ORIGINS = ['https://*.fly.dev']
 
