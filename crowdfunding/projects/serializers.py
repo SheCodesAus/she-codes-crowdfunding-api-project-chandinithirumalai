@@ -1,5 +1,7 @@
 from rest_framework import serializers
+
 from .models import Project, Pledge
+from users.serializers import CustomUserSerializer
 
 class PledgeSerializer(serializers.ModelSerializer):
 
@@ -26,6 +28,7 @@ class ProjectSerializer(serializers.Serializer):
 
 class ProjectDetailSerializer(ProjectSerializer):
     pledges = PledgeSerializer(many=True, read_only=True)
+    liked_by = CustomUserSerializer(many=True, read_only=True)
 
     def update(self, instance, validated_data):
         instance.title = validated_data.get('title', instance.title)
