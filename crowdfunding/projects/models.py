@@ -12,9 +12,6 @@ class Project(models.Model):
     image = models.URLField()
     is_open = models.BooleanField()
     date_created = models.DateTimeField(auto_now_add=True)
-<<<<<<< Updated upstream
-    owner = models.ForeignKey(User,on_delete = models.CASCADE,related_name = 'owner_projects')
-=======
     owner = models.ForeignKey(
         User,
         on_delete = models.CASCADE,
@@ -22,6 +19,7 @@ class Project(models.Model):
         )
     liked_by = models.ManyToManyField(
         User,
+        
         related_name = 'liked_projects'
         )
 
@@ -30,7 +28,6 @@ class Project(models.Model):
     def total(self):
         return self.pledges.aggregate(sum=models.Sum('amount'))['sum']
 
->>>>>>> Stashed changes
 
 
 class Pledge(models.Model):
