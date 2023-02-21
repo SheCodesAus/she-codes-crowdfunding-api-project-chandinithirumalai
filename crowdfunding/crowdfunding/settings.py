@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get(
 DEBUG = os.environ.get('DJANGO_DEBUG') != 'False'
 
 
-ALLOWED_HOSTS = ['little-field-8486.fly.dev', '127.0.0.1']
+ALLOWED_HOSTS = ['little-field-8486.fly.dev', '127.0.0.1', 'localhost']
 
 CORS_ALLOW_ALL_ORIGINS = True 
 CSRF_TRUSTED_ORIGINS = ['https://*.fly.dev']
