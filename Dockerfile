@@ -16,11 +16,15 @@ RUN set -ex && \
     pip install -r /tmp/requirements.txt && \
     rm -rf /root/.cache/
 
-COPY . /code/
+COPY crowdfunding/ /code/
 
 RUN python manage.py collectstatic --noinput
+RUN chmod +x /code/run.sh
 
 EXPOSE 8000
 
 # replace demo.wsgi with <project_name>.wsgi
-CMD ["gunicorn", "--bind", ":8000", "--workers", "2", "little-dawn-5109"]
+CMD ["/code/run.sh"]
+
+# replace demo.wsgi with <project_name>.wsgi
+CMD ["gunicorn", "--bind", ":8000", "--workers", "2", "little-field-8486"]
