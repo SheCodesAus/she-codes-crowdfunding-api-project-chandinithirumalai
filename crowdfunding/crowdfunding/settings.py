@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get(
 DEBUG = os.environ.get('DJANGO_DEBUG') != 'False'
 
 
-ALLOWED_HOSTS = ['muddy-sunset-2619', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['muddy-sunset-2619.fly.dev', '127.0.0.1', 'localhost']
 
 CORS_ALLOW_ALL_ORIGINS = True 
 CSRF_TRUSTED_ORIGINS = ['https://*.fly.dev']
