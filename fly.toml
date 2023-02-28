@@ -30,3 +30,7 @@ processes = []
   [[statics]]
     guest_path = "/app/public"
     url_prefix = "/static/"
+
++[mounts]
+  source = "dbvol"
+  destination = "/dbvol" 
