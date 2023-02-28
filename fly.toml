@@ -31,6 +31,6 @@ processes = []
     guest_path = "/app/public"
     url_prefix = "/static/"
 
-+[mounts]
+[mounts]
   source = "dbvol"
   destination = "/dbvol" 
