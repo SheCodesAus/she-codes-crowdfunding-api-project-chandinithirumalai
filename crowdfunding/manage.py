@@ -3,6 +3,9 @@
 import os
 import sys
 
+# suggestion from ChatGTP:
+sys.path.append("/path/to/muddy-sunset-2619")
+
 
 def main():
     """Run administrative tasks."""
